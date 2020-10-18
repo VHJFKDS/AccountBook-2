@@ -5,7 +5,7 @@
       账单
       </router-link> 
       
-      <router-link to="/money" class="item" active-class="selected">
+      <router-link to="/today" class="item" active-class="selected">
       <Icon name="TODAY"/>
       TODAY</router-link>
       
