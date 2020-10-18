@@ -1,25 +1,30 @@
+import Icon from '@/components/Icon.vue';
 
 <template>
   <div>
-    <div class="tags"></div>
+    <div class="type">
+      <Icon/>
+      <p>记一笔账</p>
+      <ul class="types">
+        <li class="selected">支出</li>
+        <li>收入</li>
+      </ul>
+    </div>
+    <div class="tags">
     <ul class="current">
       <li>衣</li>
       <li>食</li>
       <li>住</li>
       <li>行</li>
     </ul>
+    </div>
     <div>
       <label class="notes">
         <span class="name">备注</span>
         <input type="text" />
       </label>
     </div>
-    <div class="type">
-      <ul class="types">
-        <li class="selected">支出</li>
-        <li>收入</li>
-      </ul>
-    </div>
+    
     <div class="numberPad">
       <div class="output">100</div>
       <div class="buttons">
@@ -50,4 +55,13 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+
+.tags{
+  > .current{
+    dis
+    > li{
+
+    }
+  }
+}
 </style>
