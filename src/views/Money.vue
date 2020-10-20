@@ -10,10 +10,11 @@ import Icon from '@/components/Icon.vue';
         <li>收入</li>
       </ul>
     </div>
+
     <div class="tags">
       <ul class="current">
-        <li class="">
-         <img src="../assets/img/餐饮.png" class="selected">
+        <li class="selected">
+         <img src="../assets/img/餐饮.png">
           <p>餐饮</p> 
           </li>
           <li>
@@ -98,19 +99,25 @@ import Icon from '@/components/Icon.vue';
         <button>1</button>
         <button>2</button>
         <button>3</button>
-        <button>删除</button>
+        <button class="clear">
+          <img src="../assets/img/left.png">
+        </button>
         <button>4</button>
         <button>5</button>
         <button>6</button>
-        <button>清空</button>
+        <button>+</button>
         <button>7</button>
         <button>8</button>
         <button>9</button>
-        <button class="ok">OK</button>
+        <button>-</button>
+        <button>清零</button>
         <button class="zero">0</button>
         <button>.</button>
+        <button class="ok">OK</button>
+
       </div>
     </div>
+    
   </div>
 </template>
 
@@ -124,21 +131,31 @@ export default {
 
 .container{
   background: #F9FAF5;
+  height: 100vh;
+  
 }
 .tags {
   font-size: 14px;
-  padding: 16px;
+  padding: 12px 5px;
+  height: 43%;
+  overflow: auto;
   > .current {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    height: 100%;
     > li{
-      
+      width:20%;
       border-radius: 12px;
       padding: 1px 8px;
-      margin-right: 12px;
+      margin: 2px 8px;
       &.selected{
       background: #A0DECF;
       border: 2px solid #9BCAC2;
+      }
+      img{
+    width: 40px;
+    height: 40px;
       }
     }
     
@@ -146,10 +163,7 @@ export default {
   }
   
   }
-  img{
-    width: 40px;
-    height: 40px;
-  }
+ 
   .output-wrapper{
     border: 2px solid black;
     border-radius: 10px;
@@ -158,8 +172,9 @@ export default {
     justify-content: space-between;
     align-content: center;
     background: white;
+    margin: 0 3px;
     .notes {
-    font-size: 14px;
+    font-size: 16px;
     
     input{
       border: none;
@@ -167,18 +182,22 @@ export default {
       line-height: 40px;
       padding: 0 10px;
     }
-    .output{
+    
+  }
+  .output{
       line-height: 39px;
       padding: 0 10px;
+      font-weight: 800;
+      font-family: UD Digi Kyokasho NP-B;
+      font-size: 20px;
     }
-  }
   }
   
 .type{
   display: flex;
   justify-content: space-between;
   align-content: center;
-  padding: 10px 12px;
+  padding: 8px 12px;
   background: white;
   .left{
     width: 1.5em;
@@ -201,29 +220,37 @@ export default {
 }
 .numberPad{
   background: #9bcac2;
-  padding: 15px 8px;
+  padding: 14px 8px;
     border-top: 2px solid black;
-
+   height: 50%;
   .buttons{
     margin-top: 5px;
     @extend %clearFix;
     > button{
       width: 23%;
-      height: 45px;
+      height: 43px;
       float: left;
       border: 2px solid black;
       background: white;
       border-radius:10px ;
-      margin: 3px;
+      margin: 1%;
+      font-family:UD Digi Kyokasho NP-B;
+      font-size: 20px;
       &.ok{
-        height: 48*2px;
-        float: right;
-        background:#F1C50C ;
+        height: 43px;
+        background:#F1C50C;
       }
       &.zero{
-        width: 24*2%;
+        width: 23%;
+      }
+      img{
+         width: 30px;
+         height: 25px;
+         margin: 12px;
       }
     }
   }
 }
+
+
 </style>

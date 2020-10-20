@@ -6,3 +6,11 @@ ul,ol{
 button,input{
     font: inherit;
 }
+button:active,
+input:active{
+    outline: none;
+}
+button:focus,
+input:focus{
+    outline: none;
+}
