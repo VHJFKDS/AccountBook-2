@@ -1,7 +1,7 @@
 
 <template>
   <div class="container">
-    <Types/>
+    <Types :xxx="333"/>
     <Tags/>
     <NumberPad/>
   </div>
