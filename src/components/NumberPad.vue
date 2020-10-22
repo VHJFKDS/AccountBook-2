@@ -4,7 +4,9 @@
       <div class="output-wrapper">
         
         <label class="notes">
-          <input type="text" placeholder="内容备注"/>
+          <input type="text" :value="value" 
+          @change="onInput"
+          placeholder="内容备注"/>
         </label>
         <div class="output">{{output}}</div>
       </div>
@@ -35,13 +37,22 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {Component} from 'vue-property-decorator';
+import {Component, Prop, Watch} from 'vue-property-decorator';
 
 @Component
 export default class NumberPad extends Vue{
-  output = '0';
+  @Prop(Number) outputValue!: number;
 
+  output = '0';
+  result = 0;
+  value = '';
+  arr = ['0'];
   
+@Watch('output')
+onOutputChange(){
+ this.$emit('update:outputValue',this.result)
+}
+
   inputContent(event: MouseEvent){
     const button = event.target as HTMLButtonElement
     const input = button.textContent as string
@@ -55,9 +66,12 @@ export default class NumberPad extends Vue{
       }
       return
     }
+    
+
     if(this.output.indexOf('.')>=0 && input === '.'){return}
      this.output += input
   }
+
 
 remove(){
   if(this.output.length === 1){
@@ -71,7 +85,9 @@ clear(){
  this.output = '0'
 }
 plus(){
-console.log(this.inputContent)
+
+
+
 }
 minus(){
 
@@ -79,7 +95,10 @@ minus(){
 ok(){
  
 }
-
+onInput(event: KeyboardEvent){
+ const input = event.target as HTMLInputElement
+ this.value = input.value
+}
 
 }
 
